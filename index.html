@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ES用謎解きヒント・解説サイト</title>
+    <style>
+        /* 画面全体の中央寄せ */
+        body { 
+            font-family: sans-serif; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.6; 
+            background: #f9f9f9;
+            text-align: center; /* 全体を中央揃えに */
+        }
+
+        h1 { color: #333; margin-bottom: 30px; }
+
+        /* 正誤判定エリアのスタイル */
+        .answer-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px; /* ヒントとの間隔 */
+        }
+
+        /* 入力ボックスを大きく */
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+        }
+
+        /* 判定ボタンを大きく */
+        button {
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-height: 1.5em;
+        }
+
+        .hint-section {
+            text-align: left;
+        }
+        details { 
+            background: #fff; 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+        }
+        summary { font-weight: bold; font-size: 1.1rem; }
+        p { margin-top: 10px; color: #555; }
+    </style>
+</head>
+<body>
+
+    <h1>正誤判定</h1>
+
+    <div class="answer-section">
+        <input type="text" id="answer" placeholder="答えを入力してください">
+        <br>
+        <button onclick="judge()">判定する</button>
+        <div id="msg" class="result"></div>
+    </div>
+
+    <h1>ヒント</h1>
+
+    <div class="hint-section">
+        <details>
+            <summary>1番のヒント</summary>
+            <p>説明文を参考に、丸に文字を入れて単語にしましょう。</p>
+            <details>
+                <summary>1番のさらなるヒント</summary>
+                <p>1つ目は漢字2文字で書けます。2つ目はラジオ業界のお祭りです。3つ目は音の出る信号機のための番組です。</p>
+            </details>
+        </details>
+
+        <details>
+            <summary>2番のヒント</summary>
+            <p>1つ目はX（エックス）が、3つ目は0（ゼロ）が付いています。②①①に入るのは何でしょうか。</p>
+            <details>
+                <summary>2番のさらなるヒント</summary>
+                <p>左側の数字は時間を表しています。3つ目は28時半または29時に終わります。曜日によります。</p>
+            </details>
+        </details>
+
+        <details>
+            <summary>3番のヒント</summary>
+            <p>数字に従って左の単語に何か操作を加えると、単語が変わるようです。法則を考えましょう。</p>
+            <details>
+                <summary>3番のさらなるヒント</summary>
+                <p>右の文字は全て左の単語に含まれているようです。矢印の上の数字と何か関係ないでしょうか。</p>
+            </details>
+        </details>
+
+        <details>
+            <summary>4番のヒント</summary>
+            <p>3つの四角には、それぞれの問題の答えが入るようです。</p>
+            <details>
+                <summary>4番のさらなるヒント</summary>
+                <p>計算して得られる4桁の数字は何かの周波数を意味していそうです。</p>
+            </details>
+        </details>
+    </div>
+
+    <script>
+        function judge() {
+            const val = document.getElementById("answer").value;
+            const msg = document.getElementById("msg");
+
+            if (val === "ひゃくじゅう") { 
+                msg.innerText = "1番 正解です！";
+                msg.style.color = "green";
+            } else if (val === "110") {
+                msg.innerText = "1番 正解です！";
+                msg.style.color = "green";
+            } else if (val === "なな") {
+                msg.innerText = "2番 正解です！";
+                msg.style.color = "green";
+            } else if (val === "NANA") {
+                msg.innerText = "2番 正解です！";
+                msg.style.color = "green";
+            } else if (val === "7") {
+                msg.innerText = "2番 正解です！";
+                msg.style.color = "green";
+            } else if (val === "1345") {
+                msg.innerText = "3番 正解です！";
+                msg.style.color = "green";
+            } else if (val === "ニッポン放送") {
+                msg.innerText = "4番 正解 クリアです！";
+                msg.style.color = "green";
+            } else {
+                msg.innerText = "何かが間違っているようです";
+                msg.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
